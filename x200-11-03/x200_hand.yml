@@ -1,0 +1,61 @@
+left:
+  type: vector # or DexPilot
+  urdf_path: x200-11-03/urdf/x200_left_hand.urdf
+
+  # Target refers to the retargeting target, which is the robot hand
+  target_joint_names:
+    [
+      "l_thumb_cmc_yaw",
+      "l_thumb_cmc_pitch",
+      "l_index_mcp_pitch",
+      "l_middle_mcp_pitch",
+      "l_ring_mcp_pitch",
+      "l_pinky_mcp_pitch",
+    ]
+
+  # for DexPilot type
+  wrist_link_name: "l_hand_base_link"
+  # x200 standalone hand URDF does not define explicit *_tip links yet,
+  # so distal links are used as temporary fingertip targets.
+  finger_tip_link_names: ["l_thumb_distal", "l_index_distal", "l_middle_distal", "l_ring_distal", "l_pinky_distal"]
+  # for vector type
+  target_origin_link_names: ["l_hand_base_link", "l_hand_base_link", "l_hand_base_link", "l_hand_base_link", "l_hand_base_link"]
+  target_task_link_names: ["l_thumb_distal", "l_index_distal", "l_middle_distal", "l_ring_distal", "l_pinky_distal"]
+  target_link_human_indices_vector: [[0, 0, 0, 0, 0], [4, 9, 14, 19, 24]]
+
+  # Scaling factor for vector/DexPilot retargeting.
+  # This is an initial value and may need tuning after on-robot testing.
+  scaling_factor: 1.0
+  # A smaller alpha means stronger filtering, i.e. more smooth but also larger latency
+  low_pass_alpha: 0.2
+
+right:
+  type: vector # or DexPilot
+  urdf_path: x200-11-03/urdf/x200_right_hand.urdf
+
+  # Target refers to the retargeting target, which is the robot hand
+  target_joint_names:
+    [
+      "r_thumb_cmc_yaw",
+      "r_thumb_cmc_pitch",
+      "r_index_mcp_pitch",
+      "r_middle_mcp_pitch",
+      "r_ring_mcp_pitch",
+      "r_pinky_mcp_pitch",
+    ]
+
+  # for DexPilot type
+  wrist_link_name: "r_hand_base_link"
+  # x200 standalone hand URDF does not define explicit *_tip links yet,
+  # so distal links are used as temporary fingertip targets.
+  finger_tip_link_names: ["r_thumb_distal", "r_index_distal", "r_middle_distal", "r_ring_distal", "r_pinky_distal"]
+  # for vector type
+  target_origin_link_names: ["r_hand_base_link", "r_hand_base_link", "r_hand_base_link", "r_hand_base_link", "r_hand_base_link"]
+  target_task_link_names: ["r_thumb_distal", "r_index_distal", "r_middle_distal", "r_ring_distal", "r_pinky_distal"]
+  target_link_human_indices_vector: [[0, 0, 0, 0, 0], [4, 9, 14, 19, 24]]
+
+  # Scaling factor for vector/DexPilot retargeting.
+  # This is an initial value and may need tuning after on-robot testing.
+  scaling_factor: 1.0
+  # A smaller alpha means stronger filtering, i.e. more smooth but also larger latency
+  low_pass_alpha: 0.2
