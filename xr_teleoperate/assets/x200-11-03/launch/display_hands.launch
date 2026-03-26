@@ -1,0 +1,9 @@
+<launch>
+  <group ns="left_hand">
+    <include file="$(find x200-11-03)/launch/display_left_hand.launch" />
+  </group>
+
+  <group ns="right_hand">
+    <include file="$(find x200-11-03)/launch/display_right_hand.launch" />
+  </group>
+</launch>

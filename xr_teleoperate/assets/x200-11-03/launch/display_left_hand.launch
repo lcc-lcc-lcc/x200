@@ -1,0 +1,19 @@
+<launch>
+  <param
+    name="robot_description"
+    textfile="$(find x200-11-03)/urdf/x200_left_hand.urdf" />
+
+  <node
+    name="joint_state_publisher_gui"
+    pkg="joint_state_publisher_gui"
+    type="joint_state_publisher_gui" />
+  <node
+    name="robot_state_publisher"
+    pkg="robot_state_publisher"
+    type="robot_state_publisher" />
+  <node
+    name="rviz"
+    pkg="rviz"
+    type="rviz"
+    args="-d $(find x200-11-03)/launch/left_hand.rviz" />
+</launch>
